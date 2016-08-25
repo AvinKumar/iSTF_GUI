@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Test]">
+  <parameter name="Test" value="E:\Automation\Jellenium\Gen_Jelly\JellyTests\Run\Delete\Test"/>
+  <test name="Command line test e348edce-27ab-4aab-aba3-b1fa9b114107(failed)">
+    <parameter name="Test" value="E:\Automation\Jellenium\Gen_Jelly\JellyTests\Run\Delete\Test"/>
+    <classes>
+      <class name="com.hp.test.framework.runner.Runallthetests">
+        <methods>
+          <include name="test" invocation-numbers="2"/>
+          <include name="pres"/>
+        </methods>
+      </class> <!-- com.hp.test.framework.runner.Runallthetests -->
+    </classes>
+  </test> <!-- Command line test e348edce-27ab-4aab-aba3-b1fa9b114107(failed) -->
+</suite> <!-- Failed suite [Test] -->

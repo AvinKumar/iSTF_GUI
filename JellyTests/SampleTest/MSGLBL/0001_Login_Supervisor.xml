@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<j:jelly 
+xmlns:j="jelly:core"
+xmlns:x="jelly:xml" 
+xmlns:a="author:Avin"
+xmlns:spc="jelly:com.hp.test.spc.tags.SPCTagLibrary" 
+xmlns:sel="jelly:com.hp.test.framework.jelly.FrameworkTagLibrary">
+<sel:startbrowser   url="http://16.150.57.109:150/zantaz/logon"/>
+<sel:type id="name=username" value="scadmin"/>
+<sel:type id="name=password" value="scadmin"/>
+<sel:click id="name=login" />
+<!--
+<sel:clicklink id="xpath=//*[@id='help']/a" />
+<sel:clicklink id="xpath=html/body/div[2]/div[1]/button" />  ### Open and Close the 'About' dialog. Also we can use these to capture build version -->
+<!-- <sel:clicklink id="xpath=//a[@href='/zantaz/home']" /> ### Supervisor Home tab-->
+<!-- <sel:clicklink id="xpath=//div[contains(@id,'systemTools')]" /> ### System Tools-->
+<!-- <sel:clicklink id="xpath=//a[@href='/zantaz/home?roleID=4']" /> ### Administrator Role-->
+</j:jelly>

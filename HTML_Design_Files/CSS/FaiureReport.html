@@ -1,0 +1,200 @@
+<html>
+<head>
+<style>
+#tableStyle{
+    background-color: white;
+    color: #585858;
+
+    font-size: 13px;
+
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+
+    width: 100%;
+
+    border-collapse:collapse;
+
+    /* Shadow for boxes */
+    -moz-box-shadow: 0 0 10px #CCCCCC;
+    -ms-box-shadow: 0 0 10px #CCCCCC;
+    -webkit-box-shadow: 0 0 10px #CCCCCC;
+    box-shadow: 0 0 10px #CCCCCC;
+
+    zoom: 1;
+    filter:  progid:DXImageTransform.Microsoft.Shadow(Color=#cccccc, Strength=2, Direction=0),
+        progid:DXImageTransform.Microsoft.Shadow(Color=#cccccc, Strength=2, Direction=90),
+        progid:DXImageTransform.Microsoft.Shadow(Color=#cccccc, Strength=2, Direction=180),
+        progid:DXImageTransform.Microsoft.Shadow(Color=#cccccc, Strength=2, Direction=270);
+}
+#tableStyle img{
+    margin: 0;
+    padding: 0;
+    height: 20px;
+    width: 70px;
+    border: 1px solid skyblue;
+}
+
+
+#tableStyle th{
+    font-size: 16px;   
+    font-family: Segoe UI Light;
+    height: 35px;
+    background-color: #E9DC02 ;
+    color: black;
+}
+#tableStyle td
+{
+    border: 1px solid #ccc;
+    padding: 4px 4px;  
+    font-size: 13px;   
+    font-family: Segoe UI Light;
+    color: black;	
+}
+
+#tableStyle a:link,a:visited,a:active{
+    display: block;
+    color: #585858;
+    text-decoration: none;
+}
+
+#tableStyle a:hover{
+    color: #0066FF;
+}
+
+html,body{
+    margin: 0;
+    padding: 0;
+    height: 100%;   
+    text-align: center;  
+
+    min-width: 1200px;
+    min-height: 850px;    
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    
+}
+
+#mainTable{
+    height: 5%;
+    width: 100%;
+    margin: 0 auto;
+
+    border-collapse: collapse;
+
+   /* border-left: 1px solid #ccc ;
+    border-right: 1px solid #ccc ;
+
+    box-shadow: 1px 1px 10px 3px #ccc;*/
+
+    background-color: #819FF7;
+}
+
+
+#header{
+    height: 70px;
+    text-align: center;
+    border-bottom: 1px solid #ccc ;
+
+
+    /*text-shadow: 1px 0 1px #cccccc;*/
+    color: #819FF7;
+
+}
+
+#headertext{    
+	padding-top:15px;
+    font-family: Segoe UI Light;   
+    font-size: 30px;
+    color: black;
+}
+
+#filterTable{
+    height: 10%;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+    border-collapse: collapse;
+
+    border-left: 1px solid #ccc ;
+    border-right: 1px solid #ccc ;
+
+    box-shadow: 1px 1px 10px 3px #ccc;
+
+    background-color: white;
+}
+
+.filter{
+margin-top:20px;
+margin-right:10px;
+
+
+    box-shadow: 0 0 5px #ccc;
+
+    border:1px solid darkgrey; 
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+
+  
+
+    text-shadow: 0 1px 1px rgba(255,255,255,.3);
+    color:black ;
+   
+background-color: #F2F2F2;
+}
+
+.filter:hover{
+background-color: white;
+}
+
+.filterOption{
+padding:2px;
+
+}
+
+</style>
+</head>
+<body>
+
+<table id="mainTable"> <tr id="header" >
+ <td id="headertext">Intelligent Solutions Test Framework<div style="padding-right:20px;float:right"></i></div>                </td> </tr> </table> 
+
+<table  id="filterTable" style="height:50px; float: left">
+<tr>
+<font size="15"><td  width="20" style="font-weight:bold;vertical-align:middle;white-space:nowrap;">Choose below options to Filter Testcases By Status or Functionality </td></font>
+</tr>
+<tr>
+<td><div style="float:left;  color: #585858; font-size: 14px;">&nbsp;	Filter By Status &nbsp;
+	<select id="tcFilter" class="filter">
+						
+						
+						<option class="filterOption" value="pass">Passed Test Cases</option>
+						<option class="filterOption" value="fail">Failed Test Cases</option>
+						<option class="filterOption" value="skip">Skipped Test Cases</option>
+					
+					</select></div>
+					</tr>
+<td>					
+<div style="float:left;  color: #585858; font-size: 14px;">&nbsp;	Filter By Functionality	
+
+<select id="suiteFilter" class="filter">
+<option class="filterOption" value="all">All Suites</option>
+
+<option class="filterOption" value="atuSuiteNameMapper2">search1</option>
+
+<option class="filterOption" value="atuSuiteNameMapper1">Search2</option>
+
+</select></div>
+</td>
+</table>
+<table id="tableStyle" class="chartStyle" style="height:50px; float: left">
+                            <tr>
+                                <th>Functionality Name</th>
+                                <th>TestCase </th>
+                                <th>Status</th>
+                            </tr>
+
+                            

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<j:jelly 
+xmlns:j="jelly:core"
+xmlns:x="jelly:xml" 
+xmlns:a="author:Avin"
+xmlns:spc="jelly:com.hp.test.spc.tags.SPCTagLibrary" 
+xmlns:sel="jelly:com.hp.test.framework.jelly.FrameworkTagLibrary">
+<sel:startbrowser   url="http://16.150.57.109:150/zantaz/logon"/>
+<sel:type id="name=username" value="scadmin"/>
+<sel:type id="name=password" value="scadmin"/>
+<sel:click id="name=login" />
+
+</j:jelly>

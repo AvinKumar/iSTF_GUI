@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	<style>
+h3 {
+    width: 1000px;
+    padding: 20px;
+    border: 1px solid gray;
+    margin: 10;
+	font-size: 3.875em; /* 30px/16=1.875em */
+}
+.center {
+    margin: auto;
+    width: 60%;
+    border: 0px solid red;
+    padding: 10px;
+}
+.center1 {
+    margin: auto;
+    width: 60%;
+    border: 2px solid gray;
+    padding: 10px;
+}
+.sansserif {
+    font-family: Brush Script MT;
+	font-size: 200%;
+}
+.italic-purple-font {
+	 font-size: 10px;
+	font-weight: bold;
+    color: red;
+  }
+  .italic-green-font {
+	 font-size: 18px;
+	font-weight: bold;
+    color: green;
+  }
+  .italic-testcase-font {
+	 font-size: 12px;
+	font-weight: bold;
+    color: #0404B4;
+  }
+</style>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Spindown Example</title>		
+			<link href="css/basic.css" type="text/css" rel="stylesheet" />
+			<script type="text/javascript" src="js/enhance.js"></script>	
+
+			
+			<script type="text/javascript">
+				// Run capabilities test
+				enhance({
+					loadScripts: [
+						'js/jquery.min.js',
+						'js/jQuery.collapsible.js',
+						'js/example.js'
+											
+						
+					],
+					loadStyles: ['css/enhanced.css']	
+				});   
+		    </script>
+			
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart3);
+      function drawChart3() {
+        var data = google.visualization.arrayToDataTable([
+          ['Status', 'Hours per Day'],
+          ['Passed',     44],
+          ['Failed',     288],
+          ['Skipped',   0]
+          
+        ]);
+
+        var options = {
+          title: 'Overal Summary',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+    <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["table"]});
+      google.setOnLoadCallback(drawTableEnvWise);
+	  //google.setOnLoadCallback(drawTable1);
+google.setOnLoadCallback(HPUx);
+google.setOnLoadCallback(Linux);
+google.setOnLoadCallback(Win7);
+google.setOnLoadCallback(Win2kR2);
+	  
+	  google.setOnLoadCallback(drawTestCaseTable);
+	  
+	  
+	  
+
+      function drawTableEnvWise() {
+	  
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Environment');
+        data.addColumn('number', 'Passed');
+		data.addColumn('number', 'failed');
+		data.addColumn('number', 'skipped');
+        data.addColumn('number', 'Total');
+        data.addRows(
+		[ ['HP Ux',  {v: 10000, f: '11'}, {v: 10000, f: '72'},  {v: 10000, f: '0'},{v: 10000, f: '83'}],['Linux',  {v: 10000, f: '11'}, {v: 10000, f: '72'},  {v: 10000, f: '0'},{v: 10000, f: '83'}],['Win 7',  {v: 10000, f: '11'}, {v: 10000, f: '72'},  {v: 10000, f: '0'},{v: 10000, f: '83'}],['Win 2kR2',  {v: 10000, f: '11'}, {v: 10000, f: '72'},  {v: 10000, f: '0'},{v: 10000, f: '83'}],[' ',  {v: 10000, f: ' '}, {v: 10000, f: ' '},  {v: 10000, f: ' '},{v: 10000, f: ' '}],['Total',  {v: 10000, f: '44'}, {v: 10000, f: '288'},  {v: 10000, f: '0'},{v: 10000, f: '332'}]
+      /*     ['Win 7',  {v: 10000, f: '100'}, {v: 10000, f: '20'},  {v: 10000, f: '5'},{v: 10000, f: '125'}],
+		   ['HP UX',  {v: 10000, f: '100'}, {v: 10000, f: '20'},  {v: 10000, f: '5'},{v: 10000, f: '125'}],
+		   ['Win 2k R2',  {v: 10000, f: '100'}, {v: 10000, f: '20'},  {v: 10000, f: '5'},{v: 10000, f: '125'}],
+		   ['Win XP',  {v: 10000, f: '100'}, {v: 10000, f: '20'},  {v: 10000, f: '5'},{v: 10000, f: '125'}],
+		   [' ',  {v: 10000, f: ''}, {v: 10000, f: ''},  {v: 10000, f: ''},{v: 10000, f: ''}],
+		   ['Total',  {v: 10000, f: '500'}, {v: 10000, f: '80'},  {v: 10000, f: '20'},{v: 10000, f: '600'}] */
+          
+        ]
+		
+		);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+		
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+      }
+	  
+	 
+ function HPUx() {
+    var data = new google.visualization.DataTable();
+data.addColumn('string', 'Description');
+data.addColumn('string', 'status');
+   data.addRows([
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail']
+,
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of nghiMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-WW'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of ghjkl cur te4 word.docx with Doctype File",'Fail'],
+["Archive of Infrastructure for Data Sources - QA Test Lab .msg with Doctype Email",'Fail'],
+["Archive of 1Nov te1 word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM-DD'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["GetMetadata of Testdata_2.docx",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of T34 Word.docx with Doctype File",'Fail'],
+["Archive of 1440960680_5yqsgi3w.msg with Doctype Email",'Fail'],
+["Archive of asdfg cur te3 word.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Archive of test1.eml with Doctype Email",'Fail'],
+["Archive of 5Nov t2 Word Document.docx with Doctype File",'Fail'],
+["Archive of T78 Word.docx with Doctype File",'Fail'],
+["Archive of ndefMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of jkl current test4 word doc.docx with Doctype File",'Fail'],
+["Archive of abc current test1 word.docx with Doctype File",'Fail'],
+["preview of Nextgen3.docx",'Fail'],
+["GetMetadata of Testdata.docx",'Fail'],
+["DownloadasBase64 of Testdata.docx",'Fail'],
+["Archive of T12 Word.docx with Doctype File",'Fail'],
+["Archive of mno current test5 word doc.docx with Doctype File",'Fail'],
+["preview of Testdata_2.docx",'Fail'],
+["Archive of nabcMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of T56 Word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Archive of qwert cur te1 word.docx with Doctype File",'Fail'],
+["Archive of yuiop cur te2 word.docx with Doctype File",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'limit':'1'} generated exception",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of 1Nov te2word.docx with Doctype File",'Fail'],
+["preview of Testdata.docx",'Fail'],
+["GetMetadata of Nextgen3.docx",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of njklMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of 5nov t1 Word Document.docx with Doctype File",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of def current test2 Word Document.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["DownloadasBase64 of Testdata_2.docx",'Fail'],
+["DownloadasBase64 of Nextgen3.docx",'Fail'],
+["---------",'Pass'],
+["---------",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Archive of Nextgen3.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass'],
+["Archive of Testdata_2.docx with Doctype File",'Pass'],
+["Archive of Testdata.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass']
+    ]);
+   var table = new google.visualization.Table(document.getElementById('HPUx'));
+ table.draw(data, {showRowNumber: true, width: '100%', height: '100%'}); }
+
+
+ function Linux() {
+    var data = new google.visualization.DataTable();
+data.addColumn('string', 'Description');
+data.addColumn('string', 'status');
+   data.addRows([
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail']
+,
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of nghiMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-WW'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of ghjkl cur te4 word.docx with Doctype File",'Fail'],
+["Archive of Infrastructure for Data Sources - QA Test Lab .msg with Doctype Email",'Fail'],
+["Archive of 1Nov te1 word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM-DD'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["GetMetadata of Testdata_2.docx",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of T34 Word.docx with Doctype File",'Fail'],
+["Archive of 1440960680_5yqsgi3w.msg with Doctype Email",'Fail'],
+["Archive of asdfg cur te3 word.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Archive of test1.eml with Doctype Email",'Fail'],
+["Archive of 5Nov t2 Word Document.docx with Doctype File",'Fail'],
+["Archive of T78 Word.docx with Doctype File",'Fail'],
+["Archive of ndefMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of jkl current test4 word doc.docx with Doctype File",'Fail'],
+["Archive of abc current test1 word.docx with Doctype File",'Fail'],
+["preview of Nextgen3.docx",'Fail'],
+["GetMetadata of Testdata.docx",'Fail'],
+["DownloadasBase64 of Testdata.docx",'Fail'],
+["Archive of T12 Word.docx with Doctype File",'Fail'],
+["Archive of mno current test5 word doc.docx with Doctype File",'Fail'],
+["preview of Testdata_2.docx",'Fail'],
+["Archive of nabcMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of T56 Word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Archive of qwert cur te1 word.docx with Doctype File",'Fail'],
+["Archive of yuiop cur te2 word.docx with Doctype File",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'limit':'1'} generated exception",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of 1Nov te2word.docx with Doctype File",'Fail'],
+["preview of Testdata.docx",'Fail'],
+["GetMetadata of Nextgen3.docx",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of njklMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of 5nov t1 Word Document.docx with Doctype File",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of def current test2 Word Document.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["DownloadasBase64 of Testdata_2.docx",'Fail'],
+["DownloadasBase64 of Nextgen3.docx",'Fail'],
+["---------",'Pass'],
+["---------",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Archive of Nextgen3.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass'],
+["Archive of Testdata_2.docx with Doctype File",'Pass'],
+["Archive of Testdata.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass']
+    ]);
+   var table = new google.visualization.Table(document.getElementById('Linux'));
+ table.draw(data, {showRowNumber: true, width: '100%', height: '100%'}); }
+
+
+ function Win7() {
+    var data = new google.visualization.DataTable();
+data.addColumn('string', 'Description');
+data.addColumn('string', 'status');
+   data.addRows([
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail']
+,
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of nghiMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-WW'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of ghjkl cur te4 word.docx with Doctype File",'Fail'],
+["Archive of Infrastructure for Data Sources - QA Test Lab .msg with Doctype Email",'Fail'],
+["Archive of 1Nov te1 word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM-DD'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["GetMetadata of Testdata_2.docx",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of T34 Word.docx with Doctype File",'Fail'],
+["Archive of 1440960680_5yqsgi3w.msg with Doctype Email",'Fail'],
+["Archive of asdfg cur te3 word.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Archive of test1.eml with Doctype Email",'Fail'],
+["Archive of 5Nov t2 Word Document.docx with Doctype File",'Fail'],
+["Archive of T78 Word.docx with Doctype File",'Fail'],
+["Archive of ndefMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of jkl current test4 word doc.docx with Doctype File",'Fail'],
+["Archive of abc current test1 word.docx with Doctype File",'Fail'],
+["preview of Nextgen3.docx",'Fail'],
+["GetMetadata of Testdata.docx",'Fail'],
+["DownloadasBase64 of Testdata.docx",'Fail'],
+["Archive of T12 Word.docx with Doctype File",'Fail'],
+["Archive of mno current test5 word doc.docx with Doctype File",'Fail'],
+["preview of Testdata_2.docx",'Fail'],
+["Archive of nabcMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of T56 Word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Archive of qwert cur te1 word.docx with Doctype File",'Fail'],
+["Archive of yuiop cur te2 word.docx with Doctype File",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'limit':'1'} generated exception",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of 1Nov te2word.docx with Doctype File",'Fail'],
+["preview of Testdata.docx",'Fail'],
+["GetMetadata of Nextgen3.docx",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of njklMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of 5nov t1 Word Document.docx with Doctype File",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of def current test2 Word Document.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["DownloadasBase64 of Testdata_2.docx",'Fail'],
+["DownloadasBase64 of Nextgen3.docx",'Fail'],
+["---------",'Pass'],
+["---------",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Archive of Nextgen3.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass'],
+["Archive of Testdata_2.docx with Doctype File",'Pass'],
+["Archive of Testdata.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass']
+    ]);
+   var table = new google.visualization.Table(document.getElementById('Win7'));
+ table.draw(data, {showRowNumber: true, width: '100%', height: '100%'}); }
+
+
+ function Win2kR2() {
+    var data = new google.visualization.DataTable();
+data.addColumn('string', 'Description');
+data.addColumn('string', 'status');
+   data.addRows([
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail']
+,
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of nghiMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-WW'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of ghjkl cur te4 word.docx with Doctype File",'Fail'],
+["Archive of Infrastructure for Data Sources - QA Test Lab .msg with Doctype Email",'Fail'],
+["Archive of 1Nov te1 word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM-DD'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["GetMetadata of Testdata_2.docx",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of T34 Word.docx with Doctype File",'Fail'],
+["Archive of 1440960680_5yqsgi3w.msg with Doctype Email",'Fail'],
+["Archive of asdfg cur te3 word.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Archive of test1.eml with Doctype Email",'Fail'],
+["Archive of 5Nov t2 Word Document.docx with Doctype File",'Fail'],
+["Archive of T78 Word.docx with Doctype File",'Fail'],
+["Archive of ndefMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of jkl current test4 word doc.docx with Doctype File",'Fail'],
+["Archive of abc current test1 word.docx with Doctype File",'Fail'],
+["preview of Nextgen3.docx",'Fail'],
+["GetMetadata of Testdata.docx",'Fail'],
+["DownloadasBase64 of Testdata.docx",'Fail'],
+["Archive of T12 Word.docx with Doctype File",'Fail'],
+["Archive of mno current test5 word doc.docx with Doctype File",'Fail'],
+["preview of Testdata_2.docx",'Fail'],
+["Archive of nabcMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of T56 Word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Archive of qwert cur te1 word.docx with Doctype File",'Fail'],
+["Archive of yuiop cur te2 word.docx with Doctype File",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'limit':'1'} generated exception",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of 1Nov te2word.docx with Doctype File",'Fail'],
+["preview of Testdata.docx",'Fail'],
+["GetMetadata of Nextgen3.docx",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of njklMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of 5nov t1 Word Document.docx with Doctype File",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of def current test2 Word Document.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["DownloadasBase64 of Testdata_2.docx",'Fail'],
+["DownloadasBase64 of Nextgen3.docx",'Fail'],
+["---------",'Pass'],
+["---------",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Archive of Nextgen3.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass'],
+["Archive of Testdata_2.docx with Doctype File",'Pass'],
+["Archive of Testdata.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass']
+    ]);
+   var table = new google.visualization.Table(document.getElementById('Win2kR2'));
+ table.draw(data, {showRowNumber: true, width: '100%', height: '100%'}); }
+
+
+	  
+	/*  function drawTable1() {
+        var data = new google.visualization.DataTable();
+      //  data.addColumn('string', 'SiNo');
+        data.addColumn('string', 'Description');
+		data.addColumn('string', 'status');
+		
+        data.addRows([
+        ['Testcase1','pass'],
+		[ 'Testcase2','pass'],
+		['Testcase3','pass'],
+		['Testcase4','pass'],
+		[ 'Testcase5','fail'],
+		[  'Testcase6','pass'],
+		[ 'Testcase7','skip'],
+		['Testcase8','pass'],
+		['Testcase9','fail']
+		  
+          
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div1'));
+		
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+      } */
+	  
+    function drawTestCaseTable() {
+   var data = new google.visualization.DataTable();
+	data.addColumn('string', 'TestCaseName');
+ data.addColumn('string', 'HP Ux');
+ data.addColumn('string', 'Linux');
+ data.addColumn('string', 'Win 7');
+ data.addColumn('string', 'Win 2kR2');
+data.addRows(69);
+data.setCell(0, 0, "DownloadasBase64 of Testdata.docx",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(0, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(0, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(0, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(0, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(1, 0, "Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(1, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(1, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(1, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(1, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(2, 0, "Archive of ghjkl cur te4 word.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(2, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(2, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(2, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(2, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(3, 0, "Archive of 1Nov te2word.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(3, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(3, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(3, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(3, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(4, 0, "GetMetadata of Nextgen3.docx",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(4, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(4, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(4, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(4, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(5, 0, "Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(5, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(5, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(5, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(5, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(6, 0, "Archive of Testdata.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(6, 1, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(6, 2, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(6, 3, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(6, 4, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(7, 0, "preview of Testdata_2.docx",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(7, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(7, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(7, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(7, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(8, 0, "Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(8, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(8, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(8, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(8, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(9, 0, "Archive of 1440960680_5yqsgi3w.msg with Doctype Email",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(9, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(9, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(9, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(9, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(10, 0, "Download of Testdata.docx",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(10, 1, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(10, 2, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(10, 3, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(10, 4, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(11, 0, "DownloadasBase64 of Testdata_2.docx",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(11, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(11, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(11, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(11, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(12, 0, "Archive of 5Nov t2 Word Document.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(12, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(12, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(12, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(12, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(13, 0, "preview of Nextgen3.docx",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(13, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(13, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(13, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(13, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(14, 0, "Archive of Testdata_2.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(14, 1, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(14, 2, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(14, 3, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(14, 4, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(15, 0, "Search for {'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(15, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(15, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(15, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(15, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(16, 0, "Archive of T34 Word.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(16, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(16, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(16, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(16, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(17, 0, "Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(17, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(17, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(17, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(17, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(18, 0, "Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(18, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(18, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(18, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(18, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(19, 0, "Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(19, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(19, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(19, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(19, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(20, 0, "Archive of qwert cur te1 word.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(20, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(20, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(20, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(20, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(21, 0, "Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(21, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(21, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(21, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(21, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(22, 0, "Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(22, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(22, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(22, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(22, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(23, 0, "Win 7",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(23, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(23, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(23, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(23, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(24, 0, "Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'1'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(24, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(24, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(24, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(24, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(25, 0, "preview of Testdata.docx",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(25, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(25, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(25, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(25, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(26, 0, "Archive of asdfg cur te3 word.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(26, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(26, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(26, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(26, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(27, 0, "Archive of abc current test1 word.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(27, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(27, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(27, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(27, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(28, 0, "Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(28, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(28, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(28, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(28, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(29, 0, "Archive of jkl current test4 word doc.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(29, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(29, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(29, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(29, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(30, 0, "Download of Testdata_2.docx",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(30, 1, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(30, 2, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(30, 3, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(30, 4, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(31, 0, "Linux",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(31, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(31, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(31, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(31, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(32, 0, "Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'10'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(32, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(32, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(32, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(32, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(33, 0, "Archive of nghiMicrosoft Word Document.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(33, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(33, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(33, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(33, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(34, 0, "Archive of T78 Word.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(34, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(34, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(34, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(34, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(35, 0, "Archive of yuiop cur te2 word.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(35, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(35, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(35, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(35, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(36, 0, "Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(36, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(36, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(36, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(36, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(37, 0, "Search for {'qtext':'SessionStart','etypes':['item'],'limit':'10'} generated exception",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(37, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(37, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(37, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(37, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(38, 0, "Win 2kR2",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(38, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(38, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(38, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(38, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(39, 0, "Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY'','endDate':'1448927999','startDate':'1446681600'}}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(39, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(39, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(39, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(39, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(40, 0, "Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM-DD'','endDate':'1448927999','startDate':'1446681600'}}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(40, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(40, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(40, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(40, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(41, 0, "Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(41, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(41, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(41, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(41, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(42, 0, "Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-WW'','endDate':'1448927999','startDate':'1446681600'}}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(42, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(42, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(42, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(42, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(43, 0, "Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(43, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(43, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(43, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(43, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(44, 0, "GetMetadata of Testdata_2.docx",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(44, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(44, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(44, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(44, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(45, 0, "Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(45, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(45, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(45, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(45, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(46, 0, "---------",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(46, 1, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(46, 2, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(46, 3, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(46, 4, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(47, 0, "Archive of Infrastructure for Data Sources - QA Test Lab .msg with Doctype Email",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(47, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(47, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(47, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(47, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(48, 0, "Archive of mno current test5 word doc.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(48, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(48, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(48, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(48, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(49, 0, "Archive of nabcMicrosoft Word Document.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(49, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(49, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(49, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(49, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(50, 0, "Download of Nextgen3.docx",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(50, 1, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(50, 2, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(50, 3, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(50, 4, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(51, 0, "Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(51, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(51, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(51, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(51, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(52, 0, "Search for {'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(52, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(52, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(52, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(52, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(53, 0, "Search for {'qtext':'Interview','etypes':['item'],'limit':'1'} generated exception",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(53, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(53, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(53, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(53, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(54, 0, "Archive of def current test2 Word Document.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(54, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(54, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(54, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(54, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(55, 0, "Archive of 1Nov te1 word.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(55, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(55, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(55, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(55, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(56, 0, "Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM'','endDate':'1448927999','startDate':'1446681600'}}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(56, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(56, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(56, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(56, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(57, 0, "Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(57, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(57, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(57, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(57, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(58, 0, "GetMetadata of Testdata.docx",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(58, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(58, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(58, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(58, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(59, 0, "Archive of njklMicrosoft Word Document.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(59, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(59, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(59, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(59, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(60, 0, "Archive of 5nov t1 Word Document.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(60, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(60, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(60, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(60, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(61, 0, "Search for {'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'} generated exception",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(61, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(61, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(61, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(61, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(62, 0, "Archive of T12 Word.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(62, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(62, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(62, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(62, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(63, 0, "Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(63, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(63, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(63, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(63, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(64, 0, "DownloadasBase64 of Nextgen3.docx",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(64, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(64, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(64, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(64, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(65, 0, "Archive of ndefMicrosoft Word Document.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(65, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(65, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(65, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(65, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(66, 0, "Archive of test1.eml with Doctype Email",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(66, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(66, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(66, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(66, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(67, 0, "Archive of Nextgen3.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(67, 1, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(67, 2, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(67, 3, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(67, 4, '√',null,{'className': '.italic-green-font large-font'});
+data.setCell(68, 0, "Archive of T56 Word.docx with Doctype File",null,{'className': 'italic-testcase-font large-font'});
+data.setCell(68, 1, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(68, 2, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(68, 3, 'X',null,{'className': 'italic-purple-font large-font'});
+data.setCell(68, 4, 'X',null,{'className': 'italic-purple-font large-font'});
+ var table = new google.visualization.Table(document.getElementById('table_Testcase'));
+ table.draw(data, {showRowNumber: true, allowHtml: true, width: '100%', height: '100%'});
+}
+
+
+
+  /*	  function drawTestCaseTable() {
+        var data = new google.visualization.DataTable();
+		data.addColumn('string', 'TestCaseName');
+        data.addColumn('string', 'Win 7');
+        data.addColumn('string', 'HpUX');
+		data.addColumn('string', 'Win 2k R2');
+		data.addColumn('string', 'Win XP');
+        data.addColumn('string', 'Status');
+        data.addRows([
+          ['TestCasae1',  'pass','pass','pass','pass','pass'],
+		  ['TestCasae2',  'pass','pass','pass','pass','pass'],
+		  ['TestCasae3',  'pass','pass','pass','fail','Fail'],
+		  ['TestCasae3',  'pass','fail','pass','fail','Fail']
+          
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_Testcase'));
+		
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+      } */
+	  
+	 
+	  
+    </script>
+	
+	
+
+	
+	
+		
+	</head>
+	<body>	
+		<h3 class="center"><font color="red" class="sansserif">i</font>ntelligent Solutions Test Framework </h3><br><br>
+	
+	<table>
+	<tr>
+	
+   <td class="center1">		
+			<div id="">
+			<h1>Execution Summary(For all the Instances)</h1>
+			<p><div id="donutchart" style="width: 500px; height: 300px;"></p>
+			
+			</div>
+			</td>
+			
+			<td>
+		<div id="message">
+			
+			<h1>Execution Summary(Instance Wise)</h1>
+			<p><div id="table_div"></div></p>
+			
+  <h2>HPUx( Execution Details)</h2>
+<ul>
+<li><div id="HPUx"></div></li>
+</ul>
+
+
+  <h2>Linux( Execution Details)</h2>
+<ul>
+<li><div id="Linux"></div></li>
+</ul>
+
+
+  <h2>Win7( Execution Details)</h2>
+<ul>
+<li><div id="Win7"></div></li>
+</ul>
+
+
+  <h2>Win2kR2( Execution Details)</h2>
+<ul>
+<li><div id="Win2kR2"></div></li>
+</ul>
+
+
+			
+			</div>
+			
+		</td>
+		
+		
+		</tr>
+	</table>
+	<table>
+		<tr>
+		<td>
+		<div id="message1">
+			<h1>Execution Summary(Instance Wise)</h1>
+			<h2>Execution Details TestCaseWise</h2>
+			
+			<ul>
+				
+				<li><div id="table_Testcase"></div></li>
+			</ul>
+			<ul>
+			</div>
+		</td>
+		</tr>
+		
+		
+ </table>
+	</body>
+</html>
