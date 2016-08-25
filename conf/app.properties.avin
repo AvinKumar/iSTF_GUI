@@ -1,8 +1,0 @@
-# To change this license header, choose License Headers in Project Properties.
-# To change this template file, choose Tools | Templates
-# and open the template in the editor.
-MasterXMLModelLocation=E:\\Automation\\ModelXMLs\\Supervisor\\MasterModelXMLs\\
-XMLModelLocation=E:\\Automation\\ModelXMLs\\Supervisor\\Test\\
-DB_Location=E:\\Automation\\Jellenium\\Gen_Jelly\\Database\\SupervisorDB.dat
-StorePath=E:\\Automation\\Jellenium\\Gen_Jelly\\GenericTemplates\\
-#StorePath=C:\\Testtemp\\
