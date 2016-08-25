@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	<style>
+h3 {
+    width: 1000px;
+    padding: 20px;
+    border: 1px solid gray;
+    margin: 10;
+	font-size: 3.875em; /* 30px/16=1.875em */
+}
+.center {
+    margin: auto;
+    width: 60%;
+    border: 0px solid red;
+    padding: 10px;
+}
+.center1 {
+    margin: auto;
+    width: 60%;
+    border: 2px solid gray;
+    padding: 10px;
+}
+.sansserif {
+    font-family: Brush Script MT;
+	font-size: 200%;
+}
+</style>
+
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>ISTF Report</title>		
+			<link href="css/basic.css" type="text/css" rel="stylesheet" />
+			<script type="text/javascript" src="js/enhance.js"></script>	
+
+			
+			<script type="text/javascript">
+				// Run capabilities test
+				enhance({
+					loadScripts: [
+						'js/jquery.min.js',
+						'js/jQuery.collapsible.js',
+						'js/example.js'
+											
+						
+					],
+					loadStyles: ['css/enhanced.css']	
+				});   
+		    </script>
+			
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart3);
+      function drawChart3() {
+        var data = google.visualization.arrayToDataTable([
+          ['Status', 'Hours per Day'],
+          ['Passed',     44],
+          ['Failed',     288],
+          ['Skipped',   0]
+          
+        ]);
+
+        var options = {
+          title: 'Overal Summary',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+
+
+    <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["table"]});
+      google.setOnLoadCallback(drawTableEnvWise);
+	  //google.setOnLoadCallback(drawTable1);
+google.setOnLoadCallback(HPUx);
+google.setOnLoadCallback(Linux);
+google.setOnLoadCallback(Win7);
+google.setOnLoadCallback(Win2kR2);
+	  
+	  google.setOnLoadCallback(drawTestCaseTable);
+	  
+	  
+	  
+
+      function drawTableEnvWise() {
+	  
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Environment');
+        data.addColumn('number', 'Passed');
+		data.addColumn('number', 'failed');
+		data.addColumn('number', 'skipped');
+        data.addColumn('number', 'Total');
+        data.addRows(
+		[ ['HP Ux',  {v: 10000, f: '11'}, {v: 10000, f: '72'},  {v: 10000, f: '0'},{v: 10000, f: '83'}],['Linux',  {v: 10000, f: '11'}, {v: 10000, f: '72'},  {v: 10000, f: '0'},{v: 10000, f: '83'}],['Win 7',  {v: 10000, f: '11'}, {v: 10000, f: '72'},  {v: 10000, f: '0'},{v: 10000, f: '83'}],['Win 2kR2',  {v: 10000, f: '11'}, {v: 10000, f: '72'},  {v: 10000, f: '0'},{v: 10000, f: '83'}],[' ',  {v: 10000, f: ' '}, {v: 10000, f: ' '},  {v: 10000, f: ' '},{v: 10000, f: ' '}],['Total',  {v: 10000, f: '44'}, {v: 10000, f: '288'},  {v: 10000, f: '0'},{v: 10000, f: '332'}]
+      /*     ['Win 7',  {v: 10000, f: '100'}, {v: 10000, f: '20'},  {v: 10000, f: '5'},{v: 10000, f: '125'}],
+		   ['HP UX',  {v: 10000, f: '100'}, {v: 10000, f: '20'},  {v: 10000, f: '5'},{v: 10000, f: '125'}],
+		   ['Win 2k R2',  {v: 10000, f: '100'}, {v: 10000, f: '20'},  {v: 10000, f: '5'},{v: 10000, f: '125'}],
+		   ['Win XP',  {v: 10000, f: '100'}, {v: 10000, f: '20'},  {v: 10000, f: '5'},{v: 10000, f: '125'}],
+		   [' ',  {v: 10000, f: ''}, {v: 10000, f: ''},  {v: 10000, f: ''},{v: 10000, f: ''}],
+		   ['Total',  {v: 10000, f: '500'}, {v: 10000, f: '80'},  {v: 10000, f: '20'},{v: 10000, f: '600'}] */
+          
+        ]
+		
+		);
+
+        var table = new google.visualization.Table(document.getElementById('table_div'));
+		
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+      }
+	  
+	 
+ function HPUx() {
+    var data = new google.visualization.DataTable();
+data.addColumn('string', 'Description');
+data.addColumn('string', 'status');
+   data.addRows([
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail']
+,
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of nghiMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-WW'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of ghjkl cur te4 word.docx with Doctype File",'Fail'],
+["Archive of Infrastructure for Data Sources - QA Test Lab .msg with Doctype Email",'Fail'],
+["Archive of 1Nov te1 word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM-DD'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["GetMetadata of Testdata_2.docx",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of T34 Word.docx with Doctype File",'Fail'],
+["Archive of 1440960680_5yqsgi3w.msg with Doctype Email",'Fail'],
+["Archive of asdfg cur te3 word.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Archive of test1.eml with Doctype Email",'Fail'],
+["Archive of 5Nov t2 Word Document.docx with Doctype File",'Fail'],
+["Archive of T78 Word.docx with Doctype File",'Fail'],
+["Archive of ndefMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of jkl current test4 word doc.docx with Doctype File",'Fail'],
+["Archive of abc current test1 word.docx with Doctype File",'Fail'],
+["preview of Nextgen3.docx",'Fail'],
+["GetMetadata of Testdata.docx",'Fail'],
+["DownloadasBase64 of Testdata.docx",'Fail'],
+["Archive of T12 Word.docx with Doctype File",'Fail'],
+["Archive of mno current test5 word doc.docx with Doctype File",'Fail'],
+["preview of Testdata_2.docx",'Fail'],
+["Archive of nabcMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of T56 Word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Archive of qwert cur te1 word.docx with Doctype File",'Fail'],
+["Archive of yuiop cur te2 word.docx with Doctype File",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'limit':'1'} generated exception",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of 1Nov te2word.docx with Doctype File",'Fail'],
+["preview of Testdata.docx",'Fail'],
+["GetMetadata of Nextgen3.docx",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of njklMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of 5nov t1 Word Document.docx with Doctype File",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of def current test2 Word Document.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["DownloadasBase64 of Testdata_2.docx",'Fail'],
+["DownloadasBase64 of Nextgen3.docx",'Fail'],
+["---------",'Pass'],
+["---------",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Archive of Nextgen3.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass'],
+["Archive of Testdata_2.docx with Doctype File",'Pass'],
+["Archive of Testdata.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass']
+    ]);
+   var table = new google.visualization.Table(document.getElementById('HPUx'));
+ table.draw(data, {showRowNumber: true, width: '100%', height: '100%'}); }
+
+
+ function Linux() {
+    var data = new google.visualization.DataTable();
+data.addColumn('string', 'Description');
+data.addColumn('string', 'status');
+   data.addRows([
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail']
+,
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of nghiMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-WW'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of ghjkl cur te4 word.docx with Doctype File",'Fail'],
+["Archive of Infrastructure for Data Sources - QA Test Lab .msg with Doctype Email",'Fail'],
+["Archive of 1Nov te1 word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM-DD'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["GetMetadata of Testdata_2.docx",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of T34 Word.docx with Doctype File",'Fail'],
+["Archive of 1440960680_5yqsgi3w.msg with Doctype Email",'Fail'],
+["Archive of asdfg cur te3 word.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Archive of test1.eml with Doctype Email",'Fail'],
+["Archive of 5Nov t2 Word Document.docx with Doctype File",'Fail'],
+["Archive of T78 Word.docx with Doctype File",'Fail'],
+["Archive of ndefMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of jkl current test4 word doc.docx with Doctype File",'Fail'],
+["Archive of abc current test1 word.docx with Doctype File",'Fail'],
+["preview of Nextgen3.docx",'Fail'],
+["GetMetadata of Testdata.docx",'Fail'],
+["DownloadasBase64 of Testdata.docx",'Fail'],
+["Archive of T12 Word.docx with Doctype File",'Fail'],
+["Archive of mno current test5 word doc.docx with Doctype File",'Fail'],
+["preview of Testdata_2.docx",'Fail'],
+["Archive of nabcMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of T56 Word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Archive of qwert cur te1 word.docx with Doctype File",'Fail'],
+["Archive of yuiop cur te2 word.docx with Doctype File",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'limit':'1'} generated exception",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of 1Nov te2word.docx with Doctype File",'Fail'],
+["preview of Testdata.docx",'Fail'],
+["GetMetadata of Nextgen3.docx",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of njklMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of 5nov t1 Word Document.docx with Doctype File",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of def current test2 Word Document.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["DownloadasBase64 of Testdata_2.docx",'Fail'],
+["DownloadasBase64 of Nextgen3.docx",'Fail'],
+["---------",'Pass'],
+["---------",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Archive of Nextgen3.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass'],
+["Archive of Testdata_2.docx with Doctype File",'Pass'],
+["Archive of Testdata.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass']
+    ]);
+   var table = new google.visualization.Table(document.getElementById('Linux'));
+ table.draw(data, {showRowNumber: true, width: '100%', height: '100%'}); }
+
+
+ function Win7() {
+    var data = new google.visualization.DataTable();
+data.addColumn('string', 'Description');
+data.addColumn('string', 'status');
+   data.addRows([
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail']
+,
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of nghiMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-WW'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of ghjkl cur te4 word.docx with Doctype File",'Fail'],
+["Archive of Infrastructure for Data Sources - QA Test Lab .msg with Doctype Email",'Fail'],
+["Archive of 1Nov te1 word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM-DD'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["GetMetadata of Testdata_2.docx",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of T34 Word.docx with Doctype File",'Fail'],
+["Archive of 1440960680_5yqsgi3w.msg with Doctype Email",'Fail'],
+["Archive of asdfg cur te3 word.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Archive of test1.eml with Doctype Email",'Fail'],
+["Archive of 5Nov t2 Word Document.docx with Doctype File",'Fail'],
+["Archive of T78 Word.docx with Doctype File",'Fail'],
+["Archive of ndefMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of jkl current test4 word doc.docx with Doctype File",'Fail'],
+["Archive of abc current test1 word.docx with Doctype File",'Fail'],
+["preview of Nextgen3.docx",'Fail'],
+["GetMetadata of Testdata.docx",'Fail'],
+["DownloadasBase64 of Testdata.docx",'Fail'],
+["Archive of T12 Word.docx with Doctype File",'Fail'],
+["Archive of mno current test5 word doc.docx with Doctype File",'Fail'],
+["preview of Testdata_2.docx",'Fail'],
+["Archive of nabcMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of T56 Word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Archive of qwert cur te1 word.docx with Doctype File",'Fail'],
+["Archive of yuiop cur te2 word.docx with Doctype File",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'limit':'1'} generated exception",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of 1Nov te2word.docx with Doctype File",'Fail'],
+["preview of Testdata.docx",'Fail'],
+["GetMetadata of Nextgen3.docx",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of njklMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of 5nov t1 Word Document.docx with Doctype File",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of def current test2 Word Document.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["DownloadasBase64 of Testdata_2.docx",'Fail'],
+["DownloadasBase64 of Nextgen3.docx",'Fail'],
+["---------",'Pass'],
+["---------",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Archive of Nextgen3.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass'],
+["Archive of Testdata_2.docx with Doctype File",'Pass'],
+["Archive of Testdata.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass']
+    ]);
+   var table = new google.visualization.Table(document.getElementById('Win7'));
+ table.draw(data, {showRowNumber: true, width: '100%', height: '100%'}); }
+
+
+ function Win2kR2() {
+    var data = new google.visualization.DataTable();
+data.addColumn('string', 'Description');
+data.addColumn('string', 'status');
+   data.addRows([
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail']
+,
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of nghiMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-WW'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of ghjkl cur te4 word.docx with Doctype File",'Fail'],
+["Archive of Infrastructure for Data Sources - QA Test Lab .msg with Doctype Email",'Fail'],
+["Archive of 1Nov te1 word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM-DD'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["GetMetadata of Testdata_2.docx",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail'],
+["Archive of T34 Word.docx with Doctype File",'Fail'],
+["Archive of 1440960680_5yqsgi3w.msg with Doctype Email",'Fail'],
+["Archive of asdfg cur te3 word.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail'],
+["Archive of test1.eml with Doctype Email",'Fail'],
+["Archive of 5Nov t2 Word Document.docx with Doctype File",'Fail'],
+["Archive of T78 Word.docx with Doctype File",'Fail'],
+["Archive of ndefMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of jkl current test4 word doc.docx with Doctype File",'Fail'],
+["Archive of abc current test1 word.docx with Doctype File",'Fail'],
+["preview of Nextgen3.docx",'Fail'],
+["GetMetadata of Testdata.docx",'Fail'],
+["DownloadasBase64 of Testdata.docx",'Fail'],
+["Archive of T12 Word.docx with Doctype File",'Fail'],
+["Archive of mno current test5 word doc.docx with Doctype File",'Fail'],
+["preview of Testdata_2.docx",'Fail'],
+["Archive of nabcMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of T56 Word.docx with Doctype File",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail'],
+["Archive of qwert cur te1 word.docx with Doctype File",'Fail'],
+["Archive of yuiop cur te2 word.docx with Doctype File",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'limit':'1'} generated exception",'Fail'],
+["Search for {'qtext':'SessionStart','etypes':['item'],'limit':'10'} generated exception",'Fail'],
+["Search for {'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of 1Nov te2word.docx with Doctype File",'Fail'],
+["preview of Testdata.docx",'Fail'],
+["GetMetadata of Nextgen3.docx",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail'],
+["Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY'','endDate':'1448927999','startDate':'1446681600'}}",'Fail'],
+["Archive of njklMicrosoft Word Document.docx with Doctype File",'Fail'],
+["Archive of 5nov t1 Word Document.docx with Doctype File",'Fail'],
+["Search for {'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail'],
+["Archive of def current test2 Word Document.docx with Doctype File",'Fail'],
+["Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail'],
+["DownloadasBase64 of Testdata_2.docx",'Fail'],
+["DownloadasBase64 of Nextgen3.docx",'Fail'],
+["---------",'Pass'],
+["---------",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Download of Testdata_2.docx",'Pass'],
+["Download of Testdata.docx",'Pass'],
+["Archive of Nextgen3.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass'],
+["Archive of Testdata_2.docx with Doctype File",'Pass'],
+["Archive of Testdata.docx with Doctype File",'Pass'],
+["Download of Nextgen3.docx",'Pass']
+    ]);
+   var table = new google.visualization.Table(document.getElementById('Win2kR2'));
+ table.draw(data, {showRowNumber: true, width: '100%', height: '100%'}); }
+
+
+	  
+	/*  function drawTable1() {
+        var data = new google.visualization.DataTable();
+      //  data.addColumn('string', 'SiNo');
+        data.addColumn('string', 'Description');
+		data.addColumn('string', 'status');
+		
+        data.addRows([
+        ['Testcase1','pass'],
+		[ 'Testcase2','pass'],
+		['Testcase3','pass'],
+		['Testcase4','pass'],
+		[ 'Testcase5','fail'],
+		[  'Testcase6','pass'],
+		[ 'Testcase7','skip'],
+		['Testcase8','pass'],
+		['Testcase9','fail']
+		  
+          
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_div1'));
+		
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+      } */
+	  
+    function drawTestCaseTable() {
+   var data = new google.visualization.DataTable();
+	data.addColumn('string', 'TestCaseName');
+ data.addColumn('string', 'HP Ux');
+ data.addColumn('string', 'Linux');
+ data.addColumn('string', 'Win 7');
+ data.addColumn('string', 'Win 2kR2');
+data.addRows([
+[ "DownloadasBase64 of Testdata.docx",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'10'}",'Fail','Fail','Fail','Fail'],
+[ "Archive of ghjkl cur te4 word.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Archive of 1Nov te2word.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "GetMetadata of Nextgen3.docx",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail','Fail','Fail','Fail'],
+[ "Archive of Testdata.docx with Doctype File",'Pass','Pass','Pass','Pass'],
+[ "preview of Testdata_2.docx",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail','Fail','Fail','Fail'],
+[ "Archive of 1440960680_5yqsgi3w.msg with Doctype Email",'Fail','Fail','Fail','Fail'],
+[ "Download of Testdata.docx",'Pass','Pass','Pass','Pass'],
+[ "DownloadasBase64 of Testdata_2.docx",'Fail','Fail','Fail','Fail'],
+[ "Archive of 5Nov t2 Word Document.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "preview of Nextgen3.docx",'Fail','Fail','Fail','Fail'],
+[ "Archive of Testdata_2.docx with Doctype File",'Pass','Pass','Pass','Pass'],
+[ "Search for {'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail','Fail','Fail','Fail'],
+[ "Archive of T34 Word.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'Interview','etypes':['item'],'offset':'1'}",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'1'}",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail','Fail','Fail','Fail'],
+[ "Archive of qwert cur te1 word.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'1'}",'Fail','Fail','Fail','Fail'],
+[ "Win 7",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'1'}",'Fail','Fail','Fail','Fail'],
+[ "preview of Testdata.docx",'Fail','Fail','Fail','Fail'],
+[ "Archive of asdfg cur te3 word.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Archive of abc current test1 word.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'1'}",'Fail','Fail','Fail','Fail'],
+[ "Archive of jkl current test4 word doc.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Download of Testdata_2.docx",'Pass','Pass','Pass','Pass'],
+[ "Linux",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'SessionStart','etypes':['item'],'limit':'10'}",'Fail','Fail','Fail','Fail'],
+[ "Archive of nghiMicrosoft Word Document.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Archive of T78 Word.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Archive of yuiop cur te2 word.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'Interview','etypes':['item'],'limit':'10'}",'Fail','Fail','Fail','Fail'],
+[ "Search for {'qtext':'SessionStart','etypes':['item'],'limit':'10'} generated exception",'Fail','Fail','Fail','Fail'],
+[ "Win 2kR2",'Fail','Fail','Fail','Fail'],
+[ "Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY'','endDate':'1448927999','startDate':'1446681600'}}",'Fail','Fail','Fail','Fail'],
+[ "Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM-DD'','endDate':'1448927999','startDate':'1446681600'}}",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'10'}",'Fail','Fail','Fail','Fail'],
+[ "Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-WW'','endDate':'1448927999','startDate':'1446681600'}}",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'offset':'1'}",'Fail','Fail','Fail','Fail'],
+[ "GetMetadata of Testdata_2.docx",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'SessionStart','etypes':['item'],'offset':'10'}",'Fail','Fail','Fail','Fail'],
+[ "---------",'Pass','Pass','Pass','Pass'],
+[ "Archive of Infrastructure for Data Sources - QA Test Lab .msg with Doctype Email",'Fail','Fail','Fail','Fail'],
+[ "Archive of mno current test5 word doc.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Archive of nabcMicrosoft Word Document.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Download of Nextgen3.docx",'Pass','Pass','Pass','Pass'],
+[ "Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'}",'Fail','Fail','Fail','Fail'],
+[ "Search for {'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'1'} generated exception",'Fail','Fail','Fail','Fail'],
+[ "Search for {'qtext':'Interview','etypes':['item'],'limit':'1'} generated exception",'Fail','Fail','Fail','Fail'],
+[ "Archive of def current test2 Word Document.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Archive of 1Nov te1 word.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Analytics Dataprocessing :{'responseFormat':'nvd3','params':{'dateFormat':''YYYY-MM'','endDate':'1448927999','startDate':'1446681600'}}",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'Nextgen3.docx','etypes':['item'],'limit':'10'}",'Fail','Fail','Fail','Fail'],
+[ "GetMetadata of Testdata.docx",'Fail','Fail','Fail','Fail'],
+[ "Archive of njklMicrosoft Word Document.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Archive of 5nov t1 Word Document.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Search for {'qtext':'SessionStart','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'} generated exception",'Fail','Fail','Fail','Fail'],
+[ "Archive of T12 Word.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Search with parameters :{'qtext':'Interview','etypes':['item'],'qstmt':' sortBy relevance/Descending init_date/Descending','limit':'10'}",'Fail','Fail','Fail','Fail'],
+[ "DownloadasBase64 of Nextgen3.docx",'Fail','Fail','Fail','Fail'],
+[ "Archive of ndefMicrosoft Word Document.docx with Doctype File",'Fail','Fail','Fail','Fail'],
+[ "Archive of test1.eml with Doctype Email",'Fail','Fail','Fail','Fail'],
+[ "Archive of Nextgen3.docx with Doctype File",'Pass','Pass','Pass','Pass'],
+[ "Archive of T56 Word.docx with Doctype File",'Fail','Fail','Fail','Fail']  ]);
+ var table = new google.visualization.Table(document.getElementById('table_Testcase'));
+ table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+}
+
+
+
+  /*	  function drawTestCaseTable() {
+        var data = new google.visualization.DataTable();
+		data.addColumn('string', 'TestCaseName');
+        data.addColumn('string', 'Win 7');
+        data.addColumn('string', 'HpUX');
+		data.addColumn('string', 'Win 2k R2');
+		data.addColumn('string', 'Win XP');
+        data.addColumn('string', 'Status');
+        data.addRows([
+          ['TestCasae1',  'pass','pass','pass','pass','pass'],
+		  ['TestCasae2',  'pass','pass','pass','pass','pass'],
+		  ['TestCasae3',  'pass','pass','pass','fail','Fail'],
+		  ['TestCasae3',  'pass','fail','pass','fail','Fail']
+          
+        ]);
+
+        var table = new google.visualization.Table(document.getElementById('table_Testcase'));
+		
+
+        table.draw(data, {showRowNumber: true, width: '100%', height: '100%'});
+      } */
+	  
+	 
+	  
+    </script>
+	
+	
+
+	
+	
+		
+	</head>
+	<body>	
+		<h3 class="center"><font color="red" class="sansserif">i</font>ntelligent Solutions Test Framework </h3><br><br>
+	
+	<table>
+	<tr>
+	
+   <td class="center1">		
+			<div id="">
+			<h1>Execution Summary(For all the Instances)</h1>
+			<p><div id="donutchart" style="width: 500px; height: 300px;"></p>
+			
+			</div>
+			</td>
+			
+			<td>
+		<div id="message">
+			
+			<h1>Execution Summary(Instance Wise)</h1>
+			<p><div id="table_div"></div></p>
+			
+  <h2>HPUx( Execution Details)</h2>
+<ul>
+<li><div id="HPUx"></div></li>
+</ul>
+
+
+  <h2>Linux( Execution Details)</h2>
+<ul>
+<li><div id="Linux"></div></li>
+</ul>
+
+
+  <h2>Win7( Execution Details)</h2>
+<ul>
+<li><div id="Win7"></div></li>
+</ul>
+
+
+  <h2>Win2kR2( Execution Details)</h2>
+<ul>
+<li><div id="Win2kR2"></div></li>
+</ul>
+
+
+			
+			</div>
+			
+		</td>
+		
+		
+		</tr>
+	</table>
+	<table>
+		<tr>
+		<td>
+		<div id="message1">
+			<h1>Execution Summary(Instance Wise)</h1>
+			<h2>Execution Details TestCaseWise</h2>
+			
+			<ul>
+				
+				<li><div id="table_Testcase"></div></li>
+			</ul>
+			<ul>
+			</div>
+		</td>
+		</tr>
+		
+		
+ </table>
+	</body>
+</html>
